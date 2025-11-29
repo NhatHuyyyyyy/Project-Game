@@ -10,15 +10,6 @@ public class EconomyManager : Singleton<EconomyManager>
 
     private void Start()
     {
-        if (goldText == null)
-        {
-            GameObject textObj = GameObject.Find(COIN_AMOUNT_TEXT);
-            if (textObj != null)
-            {
-                goldText = textObj.GetComponent<TMP_Text>();
-            }
-        }
-
         UpdateUI();
     }
 
@@ -46,6 +37,15 @@ public class EconomyManager : Singleton<EconomyManager>
 
     private void UpdateUI()
     {
+        if (goldText == null)
+        {
+            GameObject textObj = GameObject.Find(COIN_AMOUNT_TEXT);
+            if (textObj != null)
+            {
+                goldText = textObj.GetComponent<TMP_Text>();
+            }
+        }
+
         if (goldText != null)
         {
             goldText.text = currentGold.ToString("D3");
